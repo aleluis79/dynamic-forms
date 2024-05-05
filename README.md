@@ -3,8 +3,11 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.5.
 
 References:
+
   https://eliteionic.com/tutorials/creating-dynamic-angular-forms-with-json/
+  
   https://dev.to/balajipatnam/understanding-angular-dynamic-forms-with-json-data-26eb
+  
   https://accesto.com/blog/angular-dynamic-forms-using-json/
 
 ## Samples
@@ -36,14 +39,14 @@ References:
 ]
 ```
 
-initialData: json with initial data
+* initialData: json with initial data
 ```
 {
   "name": "John",
   "lastname": "Doe"
 }
 ```
-submitForm: event form submit
+* submitForm: event form submit
 ```
   process(event: any) {
     console.log("DATA=", event);
