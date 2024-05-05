@@ -1,0 +1,62 @@
+[
+  {
+    "type": "text",
+    "label": "Name",
+    "name": "name",
+    "value": "",
+    "validations": [
+      {
+        "validator": "required",
+        "message": "Name is required"
+      }
+    ]
+  },
+  {
+    "type": "date",
+    "label": "Date",
+    "name": "date",
+    "value": "",
+    "validations": [
+      {
+        "validator": "required",
+        "message": "Date is required"
+      }
+    ]
+  },
+  {
+    "type": "radio",
+    "label": "¿Is Player?",
+    "name": "isPlayer",
+    "value": "false",
+    "options": [
+      {
+        "label": "Yes",
+        "value": "true"
+      },
+      {
+        "label": "No",
+        "value": "false"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "label": "Color",
+    "name": "color",
+    "value": "",
+    "options": [
+      {
+        "label": "Red",
+        "value": "red"
+      },
+      {
+        "label": "Green",
+        "value": "green"
+      },
+      {
+        "label": "Blue",
+        "value": "blue"
+      }
+    ]
+  }
+]

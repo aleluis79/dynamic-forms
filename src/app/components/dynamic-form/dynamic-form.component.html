@@ -1,0 +1,84 @@
+@if (dynamicForm) {
+  <form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+    @for (control of this.formStructure(); track control.name) {
+      <div class="example-container">
+
+        @if (['text', 'number', 'email', 'password'].includes(control.type)) {
+          <mat-form-field>
+            <mat-label>{{control.label}}</mat-label>
+            <input matInput
+                  placeholder="{{control.label}}"
+                  [type]="control.type"
+                  [formControlName]="control.name"
+                  [required]="isRequired(control)">
+            @if (dynamicForm.get(control.name)?.invalid && dynamicForm.get(control.name)?.touched) {
+              <mat-error>{{getErrorMessage(control)}}</mat-error>
+            }
+          </mat-form-field>
+        }
+
+        @if (['textarea'].includes(control.type)) {
+          <mat-form-field>
+            <mat-label>{{control.label}}</mat-label>
+            <textarea matInput
+                  rows="3"
+                  placeholder="{{control.label}}"
+                  [type]="control.type"
+                  [formControlName]="control.name"
+                  [required]="isRequired(control)"></textarea>
+            @if (dynamicForm.get(control.name)?.invalid && dynamicForm.get(control.name)?.touched) {
+              <mat-error>{{getErrorMessage(control)}}</mat-error>
+            }
+          </mat-form-field>
+        }
+
+        @if (['select'].includes(control.type)) {
+          <mat-form-field>
+            <mat-label>{{control.label}}</mat-label>
+            <mat-select [formControlName]="control.name" [required]="isRequired(control)">
+              <mat-option value="">Seleccione</mat-option>
+              @for (option of control.options; track option) {
+                <mat-option [value]="option.value">{{option.label}}</mat-option>
+              }
+            </mat-select>
+            @if (dynamicForm.get(control.name)?.invalid && dynamicForm.get(control.name)?.touched) {
+              <mat-error>{{getErrorMessage(control)}}</mat-error>
+            }
+          </mat-form-field>
+        }
+
+        @if (['radio'].includes(control.type)) {
+          <label id="example-radio-group-label">{{control.label}}</label>
+          <mat-radio-group aria-labelledby="example-radio-group-label" [formControlName]="control.name">
+            @for (option of control.options; track option) {
+              <mat-radio-button [value]="option.value">{{option.label}}</mat-radio-button>
+            }
+          </mat-radio-group>
+        }
+
+
+        @if (['date'].includes(control.type)) {
+          <mat-form-field>
+            <mat-label>{{control.label}}</mat-label>
+            <input matInput [matDatepicker]="picker" [formControlName]="control.name">
+            <mat-hint>DD/MM/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          @if (dynamicForm.get(control.name)?.invalid && dynamicForm.get(control.name)?.touched) {
+            <mat-error>{{getErrorMessage(control)}}</mat-error>
+          }
+        }
+
+        @if (['checkbox'].includes(control.type)) {
+          <p><mat-checkbox [formControlName]="control.name">{{control.label}}</mat-checkbox></p>
+          @if (dynamicForm.get(control.name)?.invalid && dynamicForm.get(control.name)?.touched) {
+            <mat-error>{{getErrorMessage(control)}}</mat-error>
+          }
+        }
+
+      </div>
+    }
+    <button type="submit" mat-flat-button color="primary">Send</button>
+  </form>
+}

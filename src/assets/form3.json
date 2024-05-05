@@ -1,0 +1,31 @@
+[
+  {
+    "type": "text",
+    "label": "Name",
+    "name": "name",
+    "value": "",
+    "validations": [
+      {
+        "validator": "required",
+        "message": "Name is required"
+      },
+      {
+        "validator": "maxlength",
+        "value": 5,
+        "message": "Name is too long"
+      }
+    ]
+  },
+  {
+   "type": "text",
+   "label": "Last Name",
+   "name": "lastname",
+   "value": ""
+  },
+  {
+    "type": "password",
+    "label": "Password",
+    "name": "password",
+    "value": ""
+   }
+]

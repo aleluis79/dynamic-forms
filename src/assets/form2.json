@@ -1,0 +1,104 @@
+[
+  {
+    "type": "text",
+    "label": "Name",
+    "name": "name",
+    "value": "",
+    "validations": [
+      {
+        "validator": "required",
+        "message": "Name is required"
+      }
+    ]
+  },
+  {
+   "type": "textarea",
+   "label": "Last Name",
+   "name": "lastname",
+   "value": ""
+  },
+  {
+    "type": "email",
+    "label": "Email",
+    "name": "email",
+    "value": "",
+    "validations": [
+      {
+        "validator": "required",
+        "message": "Email is required"
+      },
+      {
+        "validator": "email",
+        "message": "Invalid email format"
+      }
+    ]
+  },
+  {
+    "type": "number",
+    "label": "Age",
+    "name": "age",
+    "value": "",
+    "validations": [
+      {
+        "validator": "pattern",
+        "value": "^[0-9]+$",
+        "message": "Age should be a number"
+      },
+      {
+        "validator": "maxlength",
+        "value": 2,
+        "message": "Age has to be two digits"
+      },
+      {
+        "validator": "min",
+        "value": 10,
+        "message": "Age should be greater than 10"
+      },
+      {
+        "validator": "max",
+        "value": 90,
+        "message": "Age should be less than 90"
+      }
+    ]
+  },
+  {
+    "type": "select",
+    "label": "Country",
+    "name": "country",
+    "value": "",
+    "options": [
+      { "label": "India", "value": 1 },
+      { "label": "USA", "value": 2 },
+      { "label": "Canada", "value": 3 }
+    ],
+    "validations": [
+      {
+        "validator": "required",
+        "message": "Address is required"
+      }
+    ]
+  },
+  {
+    "type": "radio",
+    "label": "Gender",
+    "name": "gender",
+    "value": true,
+    "options": [
+      { "label": "Male", "value": true },
+      { "label": "Female", "value": false }
+    ],
+    "validations": []
+  },
+  {
+    "type": "checkbox",
+    "label": "Agree to terms and conditions",
+    "name": "terms",
+    "value": false,
+    "validations": [
+      {
+        "validator": "requiredTrue",
+        "message": "Agree to terms and conditions is required"
+      }
+    ]
+  }
+]
