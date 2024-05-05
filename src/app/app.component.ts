@@ -19,7 +19,7 @@ export class AppComponent {
 
   formStructure : IFormStructure[] = [];
 
-  initialData: string = '';
+  initialData: object = {};
 
   http = inject(HttpClient)
 

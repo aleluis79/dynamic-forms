@@ -31,7 +31,7 @@ export class DynamicFormComponent {
 
   formStructure = input.required<IFormStructure[]>({alias: 'formStructure'});
 
-  initialData = input('', {alias: 'initialData'});
+  initialData = input<object>({alias: 'initialData'});
 
   dataResult = output<any>({alias: 'submitForm'});
 
@@ -43,10 +43,14 @@ export class DynamicFormComponent {
 
     effect(() => {
 
-      if (this.formStructure().length > 0) {
+      let formStructure = this.formStructure();
 
+      if (formStructure.length > 0) {
+
+        let initialData = this.initialData();
         let formGroup: { [key: string]: any } = {};
-        this.formStructure().forEach(control => {
+
+        formStructure.forEach(control => {
           let controlValidators: ValidationErrors[] = [];
 
           if (control.validations) {
@@ -63,8 +67,8 @@ export class DynamicFormComponent {
             });
           }
 
-          if (this.initialData()) {
-            for(const [key, value] of Object.entries(this.initialData())){
+          if (initialData) {
+            for(const [key, value] of Object.entries(initialData)){
               if (control.name === key) control.value = value as string
             }
           }
