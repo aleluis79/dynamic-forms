@@ -8,7 +8,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
-import { IFormStructure } from '../../services/form.interface';
+import { IFormStructure, IOption } from '../../services/form.interface';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -33,11 +34,15 @@ export class DynamicFormComponent {
 
   initialData = input<object>({alias: 'initialData'});
 
+  urlApi = input<string>('', {alias: 'urlApi'});
+
   dataResult = output<any>({alias: 'submitForm'});
 
   dynamicForm!: FormGroup
 
   formBuilder = inject(FormBuilder)
+
+  http = inject(HttpClient)
 
   constructor() {
 
@@ -71,6 +76,12 @@ export class DynamicFormComponent {
             for(const [key, value] of Object.entries(initialData)){
               if (control.name === key) control.value = value as string
             }
+          }
+
+          if (control.optionsFn) {
+            this.http.get<IOption[]>(`${this.urlApi()}/${control.optionsFn}`).subscribe(items =>
+              control.options = items
+            )
           }
 
           formGroup[control.name] = [control.value || '', controlValidators];

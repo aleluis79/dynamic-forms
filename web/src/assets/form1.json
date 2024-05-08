@@ -44,18 +44,28 @@
     "label": "Color",
     "name": "color",
     "value": "",
+    "optionsFn": "colors"
+  },
+  {
+    "type": "select",
+    "label": "Country",
+    "name": "country",
+    "value": "",
+    "optionsFn": "countries"
+  },
+  {
+    "type": "select",
+    "label": "Model",
+    "name": "model",
+    "value": "",
     "options": [
       {
-        "label": "Red",
-        "value": "red"
+        "label": "Ford",
+        "value": "ford"
       },
       {
-        "label": "Green",
-        "value": "green"
-      },
-      {
-        "label": "Blue",
-        "value": "blue"
+        "label": "Chevrolet",
+        "value": "chevrolet"
       }
     ]
   }

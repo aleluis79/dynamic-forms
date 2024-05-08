@@ -21,6 +21,8 @@ export class AppComponent {
 
   initialData: object = {};
 
+  urlApi = 'http://localhost:5000';
+
   http = inject(HttpClient)
 
   constructor() {
