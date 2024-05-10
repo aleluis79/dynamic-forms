@@ -5,7 +5,7 @@ import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideMomentDateAdapter } from "@angular/material-moment-adapter"
-import { MatDateFormats, provideNativeDateAdapter } from '@angular/material/core';
+import { MatDateFormats } from '@angular/material/core';
 import { registerLocaleData } from '@angular/common';
 import localeEsAr from '@angular/common/locales/es-AR';
 
