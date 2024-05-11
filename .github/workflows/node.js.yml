@@ -11,10 +11,6 @@ on:
 jobs:
   build:
 
-    defaults:
-     run:
-      working-directory: ./web
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -29,5 +25,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - working-directory: ./web
     - run: npm ci
     - run: npm run storybook
