@@ -14,7 +14,6 @@ References:
   
   https://accesto.com/blog/angular-dynamic-forms-using-json/
 
-
 ## Get started
 
 * API REST
