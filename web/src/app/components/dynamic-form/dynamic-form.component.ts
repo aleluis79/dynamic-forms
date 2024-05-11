@@ -96,7 +96,7 @@ export class DynamicFormComponent {
 
   onSubmit() {
     if (this.dynamicForm.valid) {
-      //console.log(this.dynamicForm.value);
+      console.log(this.dynamicForm.value);
       this.dataResult.emit(this.dynamicForm.value);
     } else {
       this.dynamicForm.markAllAsTouched();

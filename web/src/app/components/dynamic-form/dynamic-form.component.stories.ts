@@ -1,24 +1,35 @@
-import { Meta, StoryObj, moduleMetadata } from "@storybook/angular";
+import { Meta, StoryObj, applicationConfig } from "@storybook/angular";
 import { DynamicFormComponent } from "./dynamic-form.component";
-import { InputSignal, OutputEmitterRef } from "@angular/core";
+import { InputSignal, LOCALE_ID, OutputEmitterRef } from "@angular/core";
 import { IFormStructure } from "../../services/form.interface";
-import { HttpClient, HttpClientModule } from "@angular/common/http";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { provideHttpClient, withFetch } from "@angular/common/http";
+import { provideAnimations } from "@angular/platform-browser/animations";
 import { fn } from '@storybook/test';
+import { provideMomentDateAdapter } from "@angular/material-moment-adapter";
+import { CUSTOM_DATE_FORMAT } from "../../app.config";
 
 const meta: Meta<DynamicFormComponent> = {
     title: "Components/Forms",
     component: DynamicFormComponent,
     tags: ['autodocs'],
+    parameters: {
+      docs: {
+        description: {
+          component: '🚀 Dynamic Form Component Descriptions',
+        }
+      },
+    },
     decorators: [
-        moduleMetadata({
-            imports: [
-                BrowserAnimationsModule,
-                HttpClientModule,
-            ],
-            providers: [HttpClient],
-        })
-    ],
+      applicationConfig({
+          providers: [
+            provideAnimations(),
+            provideHttpClient(withFetch()),
+            { provide: LOCALE_ID, useValue: 'es-AR' },
+            provideMomentDateAdapter(CUSTOM_DATE_FORMAT, {useUtc: true}),
+        
+          ]
+      }),
+    ]
 }
 
 export default meta

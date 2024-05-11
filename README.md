@@ -4,7 +4,7 @@ Projects:
 * Web:  Angular
 * API: Minimal API Net8
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.5.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.5 and Net8.
 
 References:
 
@@ -13,6 +13,26 @@ References:
   https://dev.to/balajipatnam/understanding-angular-dynamic-forms-with-json-data-26eb
   
   https://accesto.com/blog/angular-dynamic-forms-using-json/
+
+
+## Get started
+
+* API REST
+  ```
+  cd api
+  dotnet run
+  ```
+* SPA Angular
+  ```
+  cd web
+  npm start
+  ```
+
+* Storybook
+  ```
+  cd web
+  npm run storybook
+  ```
 
 ## Samples
 ```
