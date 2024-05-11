@@ -8,13 +8,12 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
-defaults:
- run:
-  working-directory: ./web
-
 jobs:
   build:
+
+    defaults:
+     run:
+      working-directory: ./web
 
     runs-on: ubuntu-latest
 
