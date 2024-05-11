@@ -9,6 +9,10 @@ on:
   pull_request:
     branches: [ "main" ]
 
+defaults:
+ run:
+  working-directory: ./web
+
 jobs:
   build:
 
@@ -26,6 +30,5 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: cd web
     - run: npm ci
     - run: npm run storybook
