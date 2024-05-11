@@ -17,4 +17,4 @@ jobs:
       run: npm install --prefix web
 
     - name: Deploy
-      run: npm run storybook --prefix web
+      run: npm run build-storybook --prefix web
