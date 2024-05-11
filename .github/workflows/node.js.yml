@@ -25,6 +25,5 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - working-directory: ./web
-    - run: npm ci
-    - run: npm run storybook
+    - run: npm ci --prefix web
+    - run: npm run storybook --prefix web
