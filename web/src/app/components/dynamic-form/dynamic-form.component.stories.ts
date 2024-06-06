@@ -142,7 +142,7 @@ export const Sample1: Story = {
             }
             ]
         }
-        ]  as unknown as InputSignal<IFormStructure[]>,
+        ],
 
         initialData: {
             "name": "Alejandro",
@@ -153,12 +153,11 @@ export const Sample1: Story = {
             "gender": true
         } as unknown as InputSignal<Object>,
 
-        urlApi: '' as unknown as InputSignal<string>,
+        urlApi: '',
 
-        dataResult: fn() as unknown as OutputEmitterRef<any>
+        dataResult: fn()
     }
 }
-
 
 export const Sample2: Story = {
     args: {
@@ -234,8 +233,8 @@ export const Sample2: Story = {
                 }
               ]
             }
-          ]  as unknown as InputSignal<IFormStructure[]>,
-          urlApi: 'http://localhost:5000' as unknown as InputSignal<string>,
+          ],
+          urlApi: 'http://localhost:5000'
     }
 }
 
@@ -275,6 +274,6 @@ export const Sample3: Story = {
             "name": "password",
             "value": ""
             }
-        ]  as unknown as InputSignal<IFormStructure[]>
+        ]
     }
 }
